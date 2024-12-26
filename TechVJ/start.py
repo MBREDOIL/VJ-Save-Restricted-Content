@@ -157,7 +157,7 @@ async def save(client: Client, message: Message):
                             await client.send_message(message.chat.id, f"Error: {e}", reply_to_message_id=message.id)
 
             # wait time
-            await asyncio.sleep(1)
+            await asyncio.sleep(3)
         batch_temp.IS_BATCH[message.from_user.id] = True
 
 
