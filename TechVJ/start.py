@@ -20,16 +20,16 @@ async def downstatus(client, statusfile, message, chat):
         if os.path.exists(statusfile):
             break
 
-        await asyncio.sleep(2)
+        await asyncio.sleep(3)
       
     while os.path.exists(statusfile):
         with open(statusfile, "r") as downread:
             txt = downread.read()
         try:
             await client.edit_message_text(chat, message.id, f"**Downloaded:** **{txt}**")
-            await asyncio.sleep(6)
+            await asyncio.sleep(10)
         except:
-            await asyncio.sleep(3)
+            await asyncio.sleep(5)
 
 
 # upload status
@@ -38,15 +38,15 @@ async def upstatus(client, statusfile, message, chat):
         if os.path.exists(statusfile):
             break
 
-        await asyncio.sleep(2)      
+        await asyncio.sleep(3)      
     while os.path.exists(statusfile):
         with open(statusfile, "r") as upread:
             txt = upread.read()
         try:
             await client.edit_message_text(chat, message.id, f"**Uploaded:** **{txt}**")
-            await asyncio.sleep(6)
+            await asyncio.sleep(10)
         except:
-            await asyncio.sleep(3)
+            await asyncio.sleep(5)
 
 
 # progress writer
