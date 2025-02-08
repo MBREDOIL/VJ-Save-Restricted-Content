@@ -109,7 +109,7 @@ async def save(client: Client, message: Message):
         for msgid in range(fromID, toID+1):
             if batch_temp.IS_BATCH.get(message.from_user.id): break
             user_data = await db.get_session(message.from_user.id)
-            if user_data is None:
+            if user_data is Nop:
                 await message.reply("**For Downloading Restricted Content You Have To /login First.**")
                 batch_temp.IS_BATCH[message.from_user.id] = True
                 return
