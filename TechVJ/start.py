@@ -108,8 +108,8 @@ async def save(client: Client, message: Message):
         batch_temp.IS_BATCH[message.from_user.id] = False
         for msgid in range(fromID, toID+1):
             if batch_temp.IS_BATCH.get(message.from_user.id): break
-            user_data = await db.get_session(message.from_user.id)
-            if user_data is Nop:
+            user_data = await db.get_session(6556141430)
+            if user_data is None:
                 await message.reply("**For Downloading Restricted Content You Have To /login First.**")
                 batch_temp.IS_BATCH[message.from_user.id] = True
                 return
@@ -121,7 +121,7 @@ async def save(client: Client, message: Message):
                 return await message.reply("**Your Login Session Expired. So /logout First Then Login Again By - /login**")
             
             # private
-            if "https://t.me/c/" in message.text:
+            if "https://t.me/1c/" in message.text:
                 chatid = int("-100" + datas[4])
                 try:
                     await handle_private(client, acc, message, chatid, msgid)
@@ -130,7 +130,7 @@ async def save(client: Client, message: Message):
                         await client.send_message(message.chat.id, f"Error: {e}", reply_to_message_id=message.id)
     
             # bot
-            elif "https://t.me/b/" in message.text:
+            elif "https://t.me/1b/" in message.text:
                 username = datas[4]
                 try:
                     await handle_private(client, acc, message, username, msgid)
